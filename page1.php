@@ -1,3 +1,33 @@
+<?php
+
+/*
+
+$email = $_POST["email"];
+$phone = $_POST["phone"];
+$zipcode=$_POST["zipcode"];
+
+$prev=json_decode($_POST["prev"]);
+$rateofintrest = $prev->interestrate;
+$tenure = $prev->tenure;
+$loanamount = $prev->loanamount;
+$principal = $prev->principal;
+$interest = $prev->interest;
+$total = $prev->total;
+
+*/
+
+$email = "test@test.com";
+$phone = "9848581828";
+$zipcode="94587";
+
+$interestrate="6.6";
+$tenure="30";
+$loanamount="150000";
+$emi=958;
+$principal=150000;
+$interest=194876;
+$total=344876;
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -81,11 +111,11 @@
         <div id="loanterms" class="row">  
             <div class="inverted col-4"><b> Loan Terms</b></div><div class="bg-light col-4"></div><div class="bg-light col-4" style="padding-left: 0px !important;"><b>Can this amount increase after closing?</b></div>          
             <table>                                
-                <tr><td class="tdblr tdblb col-4"><b>Loan Amount</b></td><td class="tdblb col-4">$ _____________ </td><td class="tdblb col-4">NO</td></tr>
-                <tr><td class="tdblr tdblb"><b>Interest Rate</b></td><td class="tdblb">* _____________ </td><td class="tdblb">NO</td></tr>
+                <tr><td class="tdblr tdblb col-4"><b>Loan Amount</b></td><td class="tdblb col-4">$<?php echo $loanamount; ?></td><td class="tdblb col-4">NO</td></tr>
+                <tr><td class="tdblr tdblb"><b>Interest Rate</b></td><td class="tdblb">* <?php echo $interestrate;?></td><td class="tdblb">NO</td></tr>
                 <tr><td class="tdblr tdblb"><b>Monthly Principal & Interest</b>
                     See Projected Payments below for your Estimated Total Monthly Payment
-                    </td><td class="tdblb">$ _____________ </td><td class="tdblb">NO</td>
+                    </td><td class="tdblb">$<?php echo $total;?> </td><td class="tdblb">NO</td>
                 </tr>
                 <tr><td class="tdblr tdblb"><b>Prepayment Penalty</b></td><td class="tdblb"> &nbsp;</td><td class="tdblb"><b>Does the loan have these features?</b><br>NO</td></tr>
                 <tr><td class="tdblr tdblb"><b>Balloon Payment</b></td><td class="tdblb"></td><td class="tdblb">NO</td></tr>                

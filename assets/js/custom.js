@@ -32,12 +32,13 @@
   /* calculate button */
   $("#calc").click(function (event) {    
     event.preventDefault();
+    $("#loanamount").removeClass("is-invalid")
     var rate = $("#interestrate").val();
     var tenure = $("#tenure").val();
     var amount = parseInt($("#loanamount").val());        
     amount = DOMPurify.sanitize(amount);
         
-    if (typeof amount === "number") {
+    if (amount!=="" && !isNaN(amount) ) {
       var res = calculate(amount, rate, tenure);
       var emi = res.emi > 0 ? res.emi : 0;
       var principal = res.principal > 0 ? res.principal : 0;
@@ -64,6 +65,8 @@
       $("#pdfbutton").show();
       $("#piechart").show();
       //$("#emitable").html(res.detailDesc)
+    }else{
+      $("#loanamount").addClass("is-invalid")
     }    
    
     return false;
@@ -108,11 +111,40 @@
         },
       action: "Please provide some data"
     },
-    submitHandler: function(form) {
-        form.submit();        
-    }
+    function: submitHandler(
+        $("#pdfModalForm").load("submit", function (e)// Trigger Submit When Validation Done
+        {
+            $.ajax({
+                url: "page1.php",
+                type: "POST",
+                data: new FormData(this),
+                cache: false,
+                processData: false,
+                success: function (data) {
+                    $('#loading').hide();
+                    $("#message").html(data);
+                }
+            });
+        })
+      )
+    
     
     });
+    /*
+    $("#pdfModalForm").on("submit",function(){
+      
+      const arr2 = {};
+      arr2.email = DOMPurify.sanitize($("email").val());
+      arr2.phone = DOMPurify.sanitize($("phone").val());
+      arr2.zipcode =DOMPurify.sanitize($("zipcode").val());
+      arr2.prev =$("#prev").val();
+      
+      $.post("http://localhost/homeloancalculator/page1.php",JSON.stringify(arr2),function(data){
+        console.log(1);
+      });
+
+    })
+   */
     $('#pdfModal').on('hidden.bs.modal', function() {                        
         $("#pdfModalForm").get(0).reset();
         $("label.is-invalid").hide();$(".is-invalid").removeClass("is-invalid");
@@ -126,6 +158,7 @@
     });
 
 }); // end jq
+
 
 /* utilities */
 Number.isNaN =
