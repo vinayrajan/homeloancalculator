@@ -1,9 +1,5 @@
 # 🐘 PHP Bootstrap 
-
-[![Latest Version on Packagist][ico-version]][link-packagist]
-[![Software License][ico-license]][link-license]
-[![Build Status][ico-gh-actions]][link-gh-actions]
-[![Total Downloads][ico-downloads]][link-downloads]
+---
 
 ## Introduction
 ### Home Loan Calculator
