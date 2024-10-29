@@ -75,9 +75,9 @@ $interest_rate = get_loan_settings("interest_rate");
         
     </div>
     <footer class="footer mt-auto py-3 bg-light">
-      <div class="container">
+      <div class="container">        
         <span class="text-muted">Date - <?php echo date('m/j/Y H:i:s');?>|| LWD - <?php echo lastDayOfMonth(); ?></span>
-        
+        <span style="text-align:right" class="text-end"><a target="_blank" href="<?php echo $base_url;?>/conditions.php">Terms and conditons</a></span>
       </div>          
     </footer>              
     
