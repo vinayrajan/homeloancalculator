@@ -43,8 +43,7 @@ $interest_rate = get_loan_settings("interest_rate");
                       <div class="mb-3">            
                         <label for="interestrate" class="form-label">Interest Rate (<span id="interestrateval"><?php echo $interest_rate; ?></span>% P.A.)</label>         
                         <input type="range" id="interestrate" data-plugin="range-slider" class="form-range" min="5" max="25" step="0.1" value="<?php echo $interest_rate; ?>" />          
-                      </div>
-              
+                      </div>                        
                       <button id="calc" type="button" class="btn btn-primary">Submit</button>
                     </form>
                   </div>
@@ -94,5 +93,6 @@ $interest_rate = get_loan_settings("interest_rate");
     <script src="<?php echo $asset_path;?>/js/jquery.validate.min.js"></script> 
     <script src="<?php echo $asset_path;?>/js/additional-methods.min.js"></script>     
     <script src="<?php echo $asset_path;?>/js/custom.js"></script>        
+    <script src="<?php echo $asset_path;?>/js/DOMPurify.min.js"></script>   
   </body>
 </html>

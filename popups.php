@@ -32,6 +32,7 @@
             <input required type="text" class="form-control" name="zipcode" id="zipcode" aria-describedby="zipHelpId" placeholder="area zip code"/>                        
         </div>
         <div class="modal-footer">
+          <input type="hidden" name="prev" id="prev" value="">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-dismiss="modal">Close</button>
             <button type="submit" class="btn btn-primary">Save changes</button>
         </div>               

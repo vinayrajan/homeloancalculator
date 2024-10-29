@@ -27,15 +27,18 @@
   $("#tenure").change(function () {
     $("#tenureval").html($("#tenure").val());
   });
-
+  
+ 
   /* calculate button */
-  $("#calc").click(function (event) {
+  $("#calc").click(function (event) {    
     event.preventDefault();
-    var i = $("#interestrate").val();
-    var t = $("#tenure").val();
-    var a = $("#loanamount").val();
-    if (!a.isNaN) {
-      var res = calculate(a, i, t);
+    var rate = $("#interestrate").val();
+    var tenure = $("#tenure").val();
+    var amount = parseInt($("#loanamount").val());        
+    amount = DOMPurify.sanitize(amount);
+        
+    if (typeof amount === "number") {
+      var res = calculate(amount, rate, tenure);
       var emi = res.emi > 0 ? res.emi : 0;
       var principal = res.principal > 0 ? res.principal : 0;
       var interest = res.interest > 0 ? res.interest : 0;
@@ -45,10 +48,24 @@
       $("#principle").text(pretynumbers(principal));
       $("#interest").text(pretynumbers(interest));
       $("#total").text(pretynumbers(total));
+
+      const arr1 = {};
+      arr1.interestrate = rate;
+      arr1.tenure = tenure;
+      arr1.loanamount = amount;
+      arr1.emi = emi;
+      arr1.principal = principal;
+      arr1.interest = interest;
+      arr1.total = total;
+
+      $("#prev").val(JSON.stringify(arr1));
+
+
       $("#pdfbutton").show();
       $("#piechart").show();
       //$("#emitable").html(res.detailDesc)
-    }
+    }    
+   
     return false;
   });
 
@@ -122,6 +139,10 @@ function ucfirst(str) {
 function tryParseFloat(str, defaultValue) {
   var value = parseFloat(str);
   return Number.isNaN(value) ? defaultValue : value;
+}
+function justNumbers(string) {
+  var numsStr = string.replace(/[^0-9]/g, '');
+  return parseInt(numsStr);
 }
 /*      
 function delay(fn, wait) {

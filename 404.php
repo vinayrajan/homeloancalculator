@@ -36,19 +36,15 @@ $back_url= $base_url;
         else{         
           $back_url =  "http://google.com" ; 
         }
-          
-?>
-</p>
+                  
+        ?>
+        </p>
         <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
           <a href="<?php echo $base_url; ?>" class="btn btn-primary btn-lg px-4 gap-3">Homepage</a>
           <a href="<?php echo $back_url; ?>" class="btn btn-outline-secondary btn-lg px-4">Back</a>
         </div>
       </div>
-    </div>
-    <?php
-    
-    ?>
-  
+    </div>     
     <div class="b-example-divider"></div>
 </main>
 <footer class="footer mt-auto py-3 bg-light">
