@@ -1,0 +1,12 @@
+php_flag display_errors 1
+
+
+ErrorDocument 404 http://localhost/homeloancalculator/404.php
+ErrorDocument 500 http://localhost/homeloancalculator/404.php
+
+Options All -Indexes
+
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+	
+

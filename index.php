@@ -14,7 +14,7 @@ $interest_rate = get_loan_settings("interest_rate");
     <meta name="viewport" content="width=device-width, initial-scale=1">        
     <link href="<?php echo $asset_path;?>/css/bootstrap.min.css" rel="stylesheet" >
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-  
+    <link rel="preconnect" href="https://www.gstatic.com/" crossorigin />
 
     <title>Home loan calculator</title>
   </head>
@@ -61,7 +61,9 @@ $interest_rate = get_loan_settings("interest_rate");
               </div>
               <div class="row">              
                                 
-                  <div id="piechart" style="width: 100%; height: 300px;"></div>                                                                                          
+                  <div class="text-muted" id="piechart" style="width: 100%; height: 300px; display:none">Pie chart loading
+                    <div class="spinner-grow" role="status"><span class="visually-hidden">Loading...</span></div>
+                  </div>                                                                                          
               </div>
               <div class="row">
                   <a id="pdfbutton" style="display:none" href="#" class="button list-group-item list-group-item-action text-center" data-toggle="modal" data-target="#pdfModal">

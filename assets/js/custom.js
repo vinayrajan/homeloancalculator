@@ -1,6 +1,7 @@
  jQuery(function ($) {
     "use strict";    
   $("#pdfbutton").hide();
+  $("#piechart").hide();
   const forms = document.querySelectorAll(".needs-validation");
   // Loop over them and prevent submission
   Array.from(forms).forEach((form) => {
@@ -45,7 +46,7 @@
       $("#interest").text(pretynumbers(interest));
       $("#total").text(pretynumbers(total));
       $("#pdfbutton").show();
-
+      $("#piechart").show();
       //$("#emitable").html(res.detailDesc)
     }
     return false;
@@ -227,9 +228,14 @@ function calculate(loanamt, interestrate, tenure) {
 }
 
 function drawPI(pri, int) {
+try{
   google.charts.load("current", { packages: ["corechart"] });
   google.charts.setOnLoadCallback(drawChart);
-
+}
+catch{  
+  $("#piechart").html("google chart cannot load");
+  return;
+}
   function drawChart() {
     var data = google.visualization.arrayToDataTable([
       ["Task", "USD"],
