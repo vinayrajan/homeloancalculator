@@ -115,7 +115,7 @@
         $("#pdfModalForm").load("submit", function (e)// Trigger Submit When Validation Done
         {
             $.ajax({
-                url: "page1.php",
+                url: "page1",
                 type: "POST",
                 data: new FormData(this),
                 cache: false,

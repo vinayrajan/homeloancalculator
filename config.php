@@ -12,6 +12,8 @@ $url= "http://localhost/homeloancalculator";
 $port =  "";
 $base_url = $url."".$port;
 $asset_path = $base_url . "/assets"; 
+$db_real_path ="";
+$counter_file_path ="counter";
 
 
 $verbose_errors=1;

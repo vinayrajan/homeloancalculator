@@ -9,9 +9,9 @@
 
             <ul class="nav col-md-4 justify-content-end">
                <!-- <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li> -->
-                <li class="nav-item"><a href="<?php echo $base_url;?>/index.php" class="nav-link px-2 text-muted">Calculator</a></b></li>
-                <li class="nav-item"><a target="_blank" href="<?php echo $base_url;?>/conditions.php" class="nav-link px-2 text-muted">Terms and conditons</a></li>
-                <li class="nav-item"><a target="_blank" href="<?php echo $base_url;?>/privacy.php" class="nav-link px-2 text-muted">Privacy policy</a></li>
+                <li class="nav-item"><a href="<?php echo $base_url;?>/index" class="nav-link px-2 text-muted">Calculator</a></b></li>
+                <li class="nav-item"><a target="_blank" href="<?php echo $base_url;?>/conditions" class="nav-link px-2 text-muted">Terms and conditons</a></li>
+                <li class="nav-item"><a target="_blank" href="<?php echo $base_url;?>/privacy" class="nav-link px-2 text-muted">Privacy policy</a></li>
                 <!-- <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Faq</a></li> -->
                 <!-- <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li> -->
             </ul>

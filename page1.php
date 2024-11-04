@@ -3,10 +3,11 @@ include("common.php");
 include("percentage.php");
 $P = new Percentage();
 
+
 if($_SERVER['REQUEST_METHOD'] !== 'POST' && !isset($_POST['prev']))
 {
     echo "what";
-    @header('Location: '."500.php?error=12");
+    @header('Location: '."500?error=12");
     die();
 }
 $email = $_POST["email"];
@@ -23,8 +24,8 @@ $total = $prev->total;
 $emi = $prev->emi;
 
 
-
 /*
+
 // need to remove
 $interestrate="3.875";
 $tenure="30";
@@ -39,6 +40,7 @@ $phone = "9848581828";
 $zipcode="94587";
 // need to remove
 */
+
 $downpayment = $P->of(20, $principal);
 
 $loan_id="HLC".$phone."Z".$zipcode."T".date("ymdhis");
@@ -143,9 +145,9 @@ $Estimated_Total_Yearly_Payment = $Estimated_Total_Monthly_Payment * 12;
                     <tr><td><b>LOAN TERM </b> </td><td><?php echo $tenure;?>Years</td></tr>
                     <tr><td><b>PURPOSE </b> </td><td>Purchase</td></tr>
                     <tr><td><b>PRODUCT </b> </td><td>Fixed</td></tr>
-                    <tr><td><b>LOAN TYPE </b> </td><td><i class="bi bi-app"></i> Conventional, <i class="bi bi-app"></i> FHA, <i class="bi bi-app"></i> VA, <i class="bi bi-app"></i> _____________ </td></tr>
+                    <tr><td><b>LOAN TYPE </b> </td><td><input type="checkbox"> Conventional, <input type="checkbox"> FHA, <input type="checkbox"> VA, <input type="checkbox"> _____________ </td></tr>
                     <tr><td><b>LOAN ID # </b> </td><td>_____________</td></tr>
-                    <tr><td><b>RATE LOCK</b> </td><td><i class="bi bi-app"></i> NO, <i class="bi bi-app"></i> YES, <i class="bi bi-app"></i> until _____________ at _____________ </td></tr>
+                    <tr><td><b>RATE LOCK</b> </td><td><input type="checkbox"> NO, <input type="checkbox"> YES,  until _____________ at _____________ </td></tr>
                 </table>
                 Before closing, your interest rate, points, and lender credits can change unless you lock the interest rate. All other estimated closing costs expire on <span id="lastDayOfMonth">10/30/2024</span> 17:59EDT
             </div>
@@ -191,9 +193,9 @@ $Estimated_Total_Yearly_Payment = $Estimated_Total_Monthly_Payment * 12;
                     <td class="col-3"><b>Estimated Taxes, Insurance <br>& Assessments</b><br><i>Amount can increase over time</i></td>
                     <td class="col-3"><?php echo formatDollars($emi);?> <br> a month</td>
                     <td class="col-3"><b>This estimate includes</b><br>
-                        <i class="bi bi-app"></i>Property Taxes<br>
-                        <i class="bi bi-app"></i>Homeowner’s Insurance<br>
-                        <i class="bi bi-app"></i>Other:
+                        <input type="checkbox"> Property Taxes<br>
+                        <input type="checkbox"> Homeowner’s Insurance<br>
+                        <input type="checkbox"> Other:
                     </td>
                     <td class="col-3"><b>In escrow?</b><br>Yes<br>Yes</td>
                 </tr>

@@ -1,10 +1,13 @@
 <?php
 include('config.php');
+if(!isset($_SESSION)) session_start();  
 
-$counter = file_get_contents('counter');
+$ip = realIp(); // visitor IP
+$counter = file_get_contents($counter_file_path);
 $counter=$counter+1;
 file_put_contents('counter',$counter);
-echo "Visitor-Number -".$counter;
+// echo "Visitor-Number -".$counter;
+
 
 function get_loan_settings($settings_name) {
   global $dbc;
@@ -46,6 +49,26 @@ function lastDayOfMonth(){
   {
       return "$".number_format(sprintf('%0.2f', preg_replace("/[^0-9.]/", "", $dollars)),2);
   }
+
+  function realIp()
+  {
+      if (!empty($_SERVER['HTTP_CLIENT_IP']))   //check ip from share internet
+      {
+        $ip=$_SERVER['HTTP_CLIENT_IP'];
+      }
+      elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR']))   //to check ip is pass from proxy
+      {
+        $ip=$_SERVER['HTTP_X_FORWARDED_FOR'];
+      }
+      else
+      {
+        $ip=$_SERVER['REMOTE_ADDR'];
+      }
+      return $ip;
+  }
+
+// visitor counter  
+
 
 
 

@@ -15,7 +15,7 @@
         </button>
       </div>    
       <div class="modal-body">
-        <form role="form" id="pdfModalForm" action="http://localhost/homeloancalculator/page1.php" method="post">        
+        <form role="form" id="pdfModalForm" action="<?php echo $base_url;?>/page1" method="post">        
         <div class="mb-3">
             <label for="email" class="form-label">Email</label>
             <input  required type="email" class="form-control" name="email" id="email" aria-describedby="emailHelpId" placeholder="abc@mail.com" value="abc@mail.com"/>            

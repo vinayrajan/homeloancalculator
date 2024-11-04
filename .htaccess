@@ -9,4 +9,4 @@ Options All -Indexes
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
 	
-
+RewriteRule ^([^.?]+)$ %{REQUEST_URI}.php [L]
