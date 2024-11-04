@@ -9,9 +9,9 @@ $interest_rate = get_loan_settings("interest_rate");
 <!doctype html>
 <html lang="en">
   <head>
-    
+
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">        
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="<?php echo $asset_path;?>/css/bootstrap.min.css" rel="stylesheet" >
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="preconnect" href="https://www.gstatic.com/" crossorigin />
@@ -36,14 +36,14 @@ $interest_rate = get_loan_settings("interest_rate");
                         </div>
                       </div>
                       <div class="mb-3">
-                        <label for="tenure" class="form-label">Tenure(<span id="tenureval"><?php echo $tenure; ?></span>years)</label>          
-                        <input type="range" id="tenure" data-plugin="range-slider" class="form-range" min="1" max="40" step="0.1" value="<?php echo $tenure; ?>" />            
+                        <label for="tenure" class="form-label">Tenure(<span id="tenureval"><?php echo $tenure; ?></span>years)</label>
+                        <input type="range" id="tenure" data-plugin="range-slider" class="form-range" min="1" max="40" step="0.1" value="<?php echo $tenure; ?>" />
                       </div>
-                      
-                      <div class="mb-3">            
-                        <label for="interestrate" class="form-label">Interest Rate (<span id="interestrateval"><?php echo $interest_rate; ?></span>% P.A.)</label>         
-                        <input type="range" id="interestrate" data-plugin="range-slider" class="form-range" min="1" max="25" step="0.1" value="<?php echo $interest_rate; ?>" />          
-                      </div>                        
+
+                      <div class="mb-3">
+                        <label for="interestrate" class="form-label">Interest Rate (<span id="interestrateval"><?php echo $interest_rate; ?></span>% P.A.)</label>
+                        <input type="range" id="interestrate" data-plugin="range-slider" class="form-range" min="1" max="25" step="0.1" value="<?php echo $interest_rate; ?>" />
+                      </div>
                       <button id="calc" type="button" class="btn btn-primary">Submit</button>
                     </form>
                   </div>
@@ -54,28 +54,28 @@ $interest_rate = get_loan_settings("interest_rate");
               <div class="row alert border border-primary">
                 <div class="col-6 text-start">Principal Amount $<span id="principle">0</span></div>
                 <div class="col-6 text-end">Interest Amount $<span id="interest">0</span></div><br>
-              
+
                 <div class="col-6 text-start">Monthly Home Loan EMI $<span id="emi">0</span></div>
                 <div class="col-6 text-end">Total Amount Payable $<span id="total">0</span></div>
               </div>
-              <div class="row">              
-                                
+              <div class="row">
+
                   <div class="text-muted" id="piechart" style="width: 100%; height: 300px; display:none">Pie chart loading
                     <div class="spinner-grow" role="status"><span class="visually-hidden">Loading...</span></div>
-                  </div>                                                                                          
+                  </div>
               </div>
               <div class="row">
                   <a id="pdfbutton" style="display:none" href="#" class="button list-group-item list-group-item-action text-center" data-toggle="modal" data-target="#pdfModal">
-                    <i class="bi bi-filetype-pdf" style="font-size: 2rem; color: cornflowerblue;"></i> Download 
-                  </a>                                   
-              </div>                                
-            </div>         
-            <!-- result -->   
-        </div>        
-        <div class="row" id="emitable" style="max-height: 300px;">&nbsp;</div>        
-        
+                    <i class="bi bi-filetype-pdf" style="font-size: 2rem; color: cornflowerblue;"></i> Download
+                  </a>
+              </div>
+            </div>
+            <!-- result -->
+        </div>
+        <div class="row" id="emitable" style="max-height: 300px;">&nbsp;</div>
+
     </div>
-    <?php include("popups.php")?>    
-    <?php include("footer.php")?>                     
+    <?php include("popups.php")?>
+    <?php include("footer.php")?>
   </body>
 </html>

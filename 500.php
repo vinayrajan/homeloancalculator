@@ -1,5 +1,25 @@
 <?php
 include('common.php');
+ob_start();
+$stack ="";
+try {
+    if(isset($_GET['error'])){
+      $error1 = $_GET['error'];    
+    switch ($error1){
+      case "12":
+          $message='This page loads in another way';
+        break;
+      default:
+      $message = 'Unknown error';      
+      }
+  }
+}
+catch(Exception $e){
+  ob_end_clean();
+  $stack = json_encode($e->getPrevious()->getMessage());
+  throw new Exception($message);    
+}
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -21,9 +41,9 @@ include('common.php');
     <h1 class="display-5 fw-bold">500</h1>
     <div class="col-lg-6 mx-auto">      
       <div class="alert alert-danger" role="alert">
-        <h4 class="alert-heading">Error - <?php echo $error.message ?></h4> <hr>
+        <h4 class="alert-heading">Error - <?php echo $message; ?></h4> <hr>
           <?php if ($verbose_errors) { ?>
-            <code><?php echo $error.stack ?></code>
+            <code><?php echo $stack; ?></code>
           <?php } else { ?>
             <p>An error occurred!</p>
           <?php } ?>
