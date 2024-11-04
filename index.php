@@ -42,7 +42,7 @@ $interest_rate = get_loan_settings("interest_rate");
                       
                       <div class="mb-3">            
                         <label for="interestrate" class="form-label">Interest Rate (<span id="interestrateval"><?php echo $interest_rate; ?></span>% P.A.)</label>         
-                        <input type="range" id="interestrate" data-plugin="range-slider" class="form-range" min="5" max="25" step="0.1" value="<?php echo $interest_rate; ?>" />          
+                        <input type="range" id="interestrate" data-plugin="range-slider" class="form-range" min="1" max="25" step="0.1" value="<?php echo $interest_rate; ?>" />          
                       </div>                        
                       <button id="calc" type="button" class="btn btn-primary">Submit</button>
                     </form>
@@ -75,24 +75,7 @@ $interest_rate = get_loan_settings("interest_rate");
         <div class="row" id="emitable" style="max-height: 300px;">&nbsp;</div>        
         
     </div>
-    <footer class="footer mt-auto py-3 bg-light">
-      <div class="container">        
-        <span class="text-muted">Date - <?php echo date('m/j/Y H:i:s');?>|| LWD - <?php echo lastDayOfMonth(); ?></span>
-        <span style="text-align:right" class="text-end"><a target="_blank" href="<?php echo $base_url;?>/conditions.php">Terms and conditons</a></span>
-      </div>          
-    </footer>              
-    
-
-    <?php include("popups.php")?>
-
-
-    <script src="<?php echo $asset_path;?>/js/jquery.min.js" ></script>
-    <script src="<?php echo $asset_path;?>/js/popper.min.js"></script>
-    <script src="<?php echo $asset_path;?>/js/bootstrap.min.js"></script>        
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>        
-    <script src="<?php echo $asset_path;?>/js/jquery.validate.min.js"></script> 
-    <script src="<?php echo $asset_path;?>/js/additional-methods.min.js"></script>     
-    <script src="<?php echo $asset_path;?>/js/custom.js"></script>        
-    <script src="<?php echo $asset_path;?>/js/DOMPurify.min.js"></script>   
+    <?php include("popups.php")?>    
+    <?php include("footer.php")?>                     
   </body>
 </html>

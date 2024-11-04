@@ -36,4 +36,12 @@ function lastDayOfMonth(){
   return date('m/j/Y',strtotime($lastdateofthemonth))." 12:59:59";
 }
 
+
+  function formatDollars($dollars)
+  {
+      return "$".number_format(sprintf('%0.2f', preg_replace("/[^0-9.]/", "", $dollars)),2);
+  }
+
+
+
 ?>

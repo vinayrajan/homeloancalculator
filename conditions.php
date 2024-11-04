@@ -9,6 +9,10 @@
     <link href="<?php echo $asset_path;?>/css/bootstrap.min.css" rel="stylesheet" >
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <style>
+    body{
+        background: rgb(229,229,229);        
+        background: radial-gradient(circle, rgba(229,229,229,1) 0%, rgba(71,172,214,1) 63%, rgba(0,34,119,0.7959558823529411) 100%); 
+    }
      .prow { 
             font-family: Arial, sans-serif;            
             font-size:.875em;
@@ -18,15 +22,17 @@
             -khtml-user-select: none;-moz-user-select: none;-ms-user-select: none;
             user-select: none;
         } 
-        ol{padding-left: 32px !important;margin-bottom: 0px !important;}
+    ol{padding-left: 32px !important;margin-bottom: 0px !important;}
     </style>
     <title>Home loan calculator</title>
   </head>
 
   <body>
+    <div >
     <h3 style="text-align: center;">Home loan calculator</h3>
     <h4 style="text-align: center;">Terms and Conditions for Home Loan </h4>
-    <div class="container-sm">
+    </div>
+    <div class="container-sm ">
         
         <div class="row prow">
             1. (a) Subject to what is indicated overleaf and the condition 1(b) & 1(c) mentioned below, the loan forwarded by 
@@ -128,17 +134,7 @@
            
         
     </div>
-    <footer class="footer mt-auto py-3 bg-light">
-      <div class="container">
-        <span class="text-muted"></span>
-        
-      </div>          
-    </footer>              
-    
-
-    <script src="<?php echo $asset_path;?>/js/jquery.min.js" ></script>
-    <script src="<?php echo $asset_path;?>/js/popper.min.js"></script>
-    <script src="<?php echo $asset_path;?>/js/bootstrap.min.js"></script>        
-                
+    <?php include("footer.php");?>            
+                        
   </body>
 </html>
