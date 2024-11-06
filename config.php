@@ -1,6 +1,9 @@
 <?php
-include('db/db.sqlite.class.php');
 
+global $root_path;
+$root_path = dirname(__FILE__);
+
+global $db_path;
 global $dbc;
 global $url;
 global $port;
@@ -8,11 +11,17 @@ global $base_url;
 global $asset_path; 
 global $verbose_errors;
 
+
+include('db/db.sqlite.class.php');
+
+
+
+
 $url= "http://localhost/homeloancalculator";
 $port =  "";
 $base_url = $url."".$port;
 $asset_path = $base_url . "/assets"; 
-$db_real_path ="";
+$db_real_path =$root_path."/db/homeloan.db";
 $counter_file_path ="counter";
 
 
@@ -22,7 +31,7 @@ if($verbose_errors==1){
 }
 
 try{
-    $dbc = new SQLite3Database('./db/homeloan.db');
+    $dbc = new SQLite3Database($db_real_path);
 }
 catch(Exception $e) {
     echo($e->getMessage());        

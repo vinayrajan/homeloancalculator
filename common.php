@@ -1,6 +1,12 @@
 <?php
 include('config.php');
+require __DIR__ . '/vendor/autoload.php';
 if(!isset($_SESSION)) session_start();  
+
+
+// csrf token for security
+generateCSRFToken();
+
 
 $ip = realIp(); // visitor IP
 $counter = file_get_contents($counter_file_path);
@@ -63,13 +69,31 @@ function lastDayOfMonth(){
       else
       {
         $ip=$_SERVER['REMOTE_ADDR'];
-      }
+      }      
       return $ip;
   }
 
 // visitor counter  
 
-
-
-
+function generateCSRFToken() {
+  if (empty($_SESSION['csrf_token'])) {
+      $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+  }
+  return $_SESSION['csrf_token'];
+}
+function verifyCSRFToken($token) {
+  if($token=="" || is_null($token)){
+    housekeeping(500,11);
+  }
+  else{
+    $check =  isset($_SESSION['csrf_token']) && hash_equals($_SESSION['csrf_token'], $token);    
+    if(!$check){
+      housekeeping(500,11);
+    }
+  }
+}
+function housekeeping($location,$error){
+  @header('Location: '.$location."?error=".$error);
+  die();
+}
 ?>

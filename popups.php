@@ -32,6 +32,8 @@
         </div>
         <div class="modal-footer">
           <input type="hidden" name="prev" id="prev" value="">
+          <input type="hidden" name="csrf_token" id="csrf_token" value="<?php echo $_SESSION['csrf_token'];?>">
+          
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-dismiss="modal">Close</button>
             <button type="submit" class="btn btn-primary">Save changes</button>
         </div>               

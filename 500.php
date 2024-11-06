@@ -6,6 +6,9 @@ try {
     if(isset($_GET['error'])){
       $error1 = $_GET['error'];    
     switch ($error1){
+      case "11":
+        $message='CSRF mismatch';
+      break;
       case "12":
           $message='This page loads in another way';
         break;

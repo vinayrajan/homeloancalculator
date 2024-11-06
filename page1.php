@@ -1,15 +1,19 @@
 <?php
+ob_start();
 include("common.php");
 include("percentage.php");
 $P = new Percentage();
 
 
+
+
+/*
+// need to use once testing is done
 if($_SERVER['REQUEST_METHOD'] !== 'POST' && !isset($_POST['prev']))
-{
-    echo "what";
-    @header('Location: '."500?error=12");
-    die();
+{    
+    housekeeping(500,12); //request method not expected    
 }
+$csrf_token = verifyCSRFToken((isset($_POST["csrf_token"]) && $_POST["csrf_token"]!=="")?$_POST["csrf_token"]:$_GET["csrf_token"]);
 $email = $_POST["email"];
 $phone = $_POST["phone"];
 $zipcode=$_POST["zipcode"];
@@ -22,28 +26,34 @@ $principal = $prev->principal;
 $interest = $prev->interest;
 $total = $prev->total;
 $emi = $prev->emi;
+// need to use once testing is done
+*/
 
 
-/*
 
-// need to remove
+
+// need to remove once testing is done
+
+// - security check - 
+$csrf_token = generateCSRFToken();;
+verifyCSRFToken($csrf_token);
+
+
 $interestrate="3.875";
 $tenure="30";
 $loanamount="150000";
 $emi=958;
 $principal=150000;
 
-
-
 $email = "test@test.com";
 $phone = "9848581828";
 $zipcode="94587";
-// need to remove
-*/
+// need to remove once testing is done
+
 
 $downpayment = $P->of(20, $principal);
 
-$loan_id="HLC".$phone."Z".$zipcode."T".date("ymdhis");
+$loan_id="HLC".$phone."Z".$zipcode."T".date("ymdhis").'<br>'.$csrf_token;
 $estimate_id="LFD"."0".$counter."-".date("ymd");
 
 
@@ -74,6 +84,7 @@ $escrow = 0;
 // end of calculations
 $Estimated_Total_Monthly_Payment = $emi+$MortgageInsurance1+$escrow;
 $Estimated_Total_Yearly_Payment = $Estimated_Total_Monthly_Payment * 12;
+
 ?>
 <!doctype html>
 <html lang="en">

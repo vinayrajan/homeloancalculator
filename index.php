@@ -1,10 +1,8 @@
 <?php
 include('common.php');
-
 $loan_amount = get_loan_settings("loan_amount") ;
 $tenure = get_loan_settings("tenure");
 $interest_rate = get_loan_settings("interest_rate");
-
 ?>
 <!doctype html>
 <html lang="en">
